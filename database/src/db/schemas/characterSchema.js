@@ -20,8 +20,8 @@ const characterSchema = new Schema({
     films: [{type: String, ref: "Film"}]
 })
 
-characterSchema.statics.list = async function(){
-  return await this.find()
+characterSchema.statics.list = async function(name){
+  return await this.find({name: { $regex: name ? name : "" , $options: 'i' }})
   .populate("homeworld", ["_id", "name"])
   .populate("films", ["_id", "title"])
 }

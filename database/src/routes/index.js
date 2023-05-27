@@ -10,4 +10,5 @@ router.get("/:model", middlewares.validateModell,controllers.getData);
 router.get("/:model/:id",middlewares.validateModell ,controllers.getDataById)
 
 
+
 module.exports = router;
