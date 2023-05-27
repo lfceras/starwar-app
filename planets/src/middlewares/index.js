@@ -1,5 +1,5 @@
 module.exports = {
-  characterValidation: require('./characterValidation'),
+  planetValidation: require('./planetValidation'),
   validateIdParam: require('./validateIdParam'),
   nameQuery: require('./nameQuery')
 }

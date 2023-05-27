@@ -1,8 +1,12 @@
-const planets = require('../data')
 const { response } = require('../utils')
-const {fetchPlanets} = require('../data/fetchPlanets')
+const axios = require('axios')
+
+// module.exports = async (req, res)=>{
+//     let datos = await axios.get(`http://localhost:8004/Planet`)
+//   response(res, 200, datos.data)
+// }
 
 module.exports = async (req, res)=>{
-  const planets2 = await fetchPlanets()
-  response(res, 200, planets2)
+    let datos = await axios.get(`http://database:8004/Planet`)
+  response(res, 200, datos.data)
 }

@@ -1,5 +1,6 @@
 const express = require('express')
 const morgan = require('morgan')
+const handlers = require('./utils/errors/handlers')
 
 const app = express()
 
@@ -8,15 +9,8 @@ app.use(morgan('dev'))
 
 app.use('/characters',require('./routes'))
 
-app.use('*', (req, res)=>{
-  res.status(404).send('Not Found')
-})
+app.use('*', handlers.notFoundHandler)
 
-app.use((err, req, res, next)=>{
-  res.status(err.statusCode || 500).send({
-    error: true,
-    message: err.message
-  })
-})
+app.use(handlers.errorHandler)
 
 module.exports = app
