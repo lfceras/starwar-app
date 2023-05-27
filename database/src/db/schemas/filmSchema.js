@@ -14,11 +14,12 @@ const filmSchema = new Schema({
   planets: [{type: String, ref: "Planet"}]
 })
 
-filmSchema.statics.list = async function(){
-  return await this.find()
+filmSchema.statics.list = async function(title){
+  return await this.find({title: {$regex: title ? title : "", $options: "i"}})
   .populate("characters", ["_id", "name"])
   .populate("planets", ["_id", "name"])
 }
+
 
 
 filmSchema.statics.get = async function(id){
