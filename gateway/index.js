@@ -27,6 +27,26 @@ server.use('/database', createProxyMiddleware({
   changeOrigin: true
 }))
 
+// server.use('/characters', createProxyMiddleware({
+//   target: "http://localhost:8001",
+//   changeOrigin: true
+// }))
+
+// server.use('/films', createProxyMiddleware({
+//   target: "http://localhost:8002",
+//   changeOrigin: true
+// }))
+
+// server.use('/planets', createProxyMiddleware({
+//   target: "http://localhost:8003",
+//   changeOrigin: true
+// }))
+
+// server.use('/database', createProxyMiddleware({
+//   target: "http://localhost:8004",
+//   changeOrigin: true
+// }))
+
 server.listen(PORT, ()=>{
   console.log(`Gateway running on port ${PORT}`);
 })
