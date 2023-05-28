@@ -13,25 +13,25 @@ services:
     restart: always
     build: ./characters
     ports:
-      - ":8001"
+      - "8001:8001"
 
   films:
     container_name: films
     restart: always
     build: ./films
     ports: 
-      - ":8002"
+      - "8002:8002"
 
   planets:
     container_name: planets
     restart: always
     build: ./planets
     ports:
-      - ":8003"
+      - "8003:8003"
 
   database:
     container_name: database
     restart: always
     build: ./database
-    ports: 
-      - ":8004"
+    ports:  
+      - "8004:8004"
